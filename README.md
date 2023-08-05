@@ -12,12 +12,14 @@ The date table was created in Power Query;
 
 = (StartDate as date, EndDate as date)=>
 
-let         
-    //Capture the date range from the parameters
+       
+    let    
+    
+     //Capture the date range from the parameters
     StartDate = #date(Date.Year(StartDate), Date.Month(StartDate), 
     Date.Day(StartDate)),
     EndDate = #date(Date.Year(EndDate), Date.Month(EndDate), 
-    Date.Day(EndDate)),
+    Date.Day(EndDate)),      
 
     //Get the number of dates that will be required for the table
     GetDateCount = Duration.Days(EndDate - StartDate),
