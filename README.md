@@ -92,7 +92,53 @@ DAX Maesures;
     On-time Delivery Rate =
     DIVIDE([On-time], [Total Orders]) 
 
-    
+    MoM Growth = 
+    VAR prev =
+    IF(
+    NOT(ISBLANK([Net Sales])),
+        CALCULATE([Net Sales], PREVIOUSMONTH('Date Table'[Date])) )
+    RETURN
+    [Net Sales] - prev
+
+    MoM Growth % = 
+    VAR prev =
+    IF(
+    NOT(ISBLANK([Net Sales])),
+        CALCULATE([Net Sales], PREVIOUSMONTH('Date Table'[Date])) )
+    RETURN
+    DIVIDE(([Net Sales] - prev), prev) 
+
+    QoQ Growth = 
+    VAR prev =
+    IF(
+    NOT(ISBLANK([Net Sales])),
+        CALCULATE([Net Sales], PREVIOUSQUARTER('Date Table'[Date])) )
+    RETURN
+    [Net Sales] - prev
+
+    QoQ Growth % = 
+    VAR prev =
+    IF(
+    NOT(ISBLANK([Net Sales])),
+        CALCULATE([Net Sales], PREVIOUSQUARTER('Date Table'[Date])) )
+    RETURN
+    DIVIDE(([Net Sales] - prev), prev)
+
+    YoY Growth = 
+    VAR prev =
+    IF(
+    NOT(ISBLANK([Net Sales])),
+        CALCULATE([Net Sales], PREVIOUSYEAR('Date Table'[Date])) )
+    RETURN
+    [Net Sales] - prev
+
+    YoY Growth % = 
+    VAR prev =
+    IF(
+    NOT(ISBLANK([Net Sales])),
+        CALCULATE([Net Sales], PREVIOUSYEAR('Date Table'[Date])) )
+    RETURN
+    DIVIDE(([Net Sales] - prev), prev) 
     
 
     
