@@ -56,6 +56,6 @@ The date table was created in Power Query;
     each Date.ToText([Date],"dddd"))         
 
 Net Sales;   
-    Net Sales =     
+    `Net Sales =     
     CALCULATE(SUM(order_details[net sales]), USERELATIONSHIP(orders[orderDate], 'Date Table'[Date]) )`
 
