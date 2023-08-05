@@ -53,5 +53,7 @@ The date table was created in Power Query;
 
      //Add Day of Week Column
     DayOfWeek = Table.AddColumn(MonthName , "Day of Week", 
-    each Date.ToText([Date],"dddd"))
+    each Date.ToText([Date],"dddd"))         
+
+
 
