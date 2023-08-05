@@ -139,6 +139,9 @@ The **date table** was created in Power Query;
         CALCULATE([Net Sales], PREVIOUSYEAR('Date Table'[Date])) )
     RETURN
     DIVIDE(([Net Sales] - prev), prev) 
+
+
+This is the link to the interactive Power BI [report]() 
     
 
     
