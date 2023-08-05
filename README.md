@@ -1,3 +1,4 @@
 # Northwind_Traders_Analysis       
 
-![](selecting_supplier.png)
+![](selecting_supplier.png)   
+-------------------------
