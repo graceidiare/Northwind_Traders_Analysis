@@ -10,7 +10,7 @@ _A detailed article on the analysis process and insights is up on my [medium]()_
 
 ## Creating the Date Table and DAX Measures             
 
-The date table was created in Power Query;     
+The **date table** was created in Power Query;     
 
     = (StartDate as date, EndDate as date)=>        
     
@@ -57,7 +57,7 @@ The date table was created in Power Query;
     DayOfWeek = Table.AddColumn(MonthName , "Day of Week", 
     each Date.ToText([Date],"dddd"))         
 
-DAX Maesures;     
+### DAX Measures;     
 
     Net Sales =     
     CALCULATE(SUM(order_details[net sales]), USERELATIONSHIP(orders[orderDate], 'Date Table'[Date]) )   
