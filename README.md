@@ -12,7 +12,7 @@ The date table was created in Power Query;
 
 = (StartDate as date, EndDate as date)=>
 
-let
+let         
     //Capture the date range from the parameters
     StartDate = #date(Date.Year(StartDate), Date.Month(StartDate), 
     Date.Day(StartDate)),
