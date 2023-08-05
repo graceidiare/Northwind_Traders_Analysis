@@ -8,6 +8,53 @@ _A detailed article on the analysis process is up on my [medium]()_
 
 These are the measures I created during this project and how I created them;         
 
-The date table was created in Power Query;       
+The date table was created in Power Query;   
+`= (StartDate as date, EndDate as date)=>
+
+let
+    //Capture the date range from the parameters
+    StartDate = #date(Date.Year(StartDate), Date.Month(StartDate), 
+    Date.Day(StartDate)),
+    EndDate = #date(Date.Year(EndDate), Date.Month(EndDate), 
+    Date.Day(EndDate)),
+
+    //Get the number of dates that will be required for the table
+    GetDateCount = Duration.Days(EndDate - StartDate),
+
+    //Take the count of dates and turn it into a list of dates
+    GetDateList = List.Dates(StartDate, GetDateCount, 
+    #duration(1,0,0,0)),
+
+    //Convert the list into a table
+    DateListToTable = Table.FromList(GetDateList, 
+    Splitter.SplitByNothing(), {"Date"}, null, ExtraValues.Error),
+
+    //Create various date attributes from the date column
+    //Add Year Column
+    YearNumber = Table.AddColumn(DateListToTable, "Year", 
+    each Date.Year([Date])),
+
+    //Add Quarter Column
+    QuarterNumber = Table.AddColumn(YearNumber , "Quarter", 
+    each "Q" & Number.ToText(Date.QuarterOfYear([Date]))),
+
+    //Add Week Number Column
+    WeekNumber= Table.AddColumn(QuarterNumber , "Week Number", 
+    each Date.WeekOfYear([Date])),
+
+    //Add Month Number Column
+    MonthNumber = Table.AddColumn(WeekNumber, "Month Number", 
+    each Date.Month([Date])),
+
+    //Add Month Name Column
+    MonthName = Table.AddColumn(MonthNumber , "Month", 
+    each Date.ToText([Date],"MMMM")),
+
+    //Add Day of Week Column
+    DayOfWeek = Table.AddColumn(MonthName , "Day of Week", 
+    each Date.ToText([Date],"dddd"))
+
+in
+    DayOfWeek`
 
 
