@@ -57,12 +57,10 @@ The date table was created in Power Query;
     DayOfWeek = Table.AddColumn(MonthName , "Day of Week", 
     each Date.ToText([Date],"dddd"))         
 
-Net Sales;     
+DAX Maesures;     
 
     Net Sales =     
     CALCULATE(SUM(order_details[net sales]), USERELATIONSHIP(orders[orderDate], 'Date Table'[Date]) )
-
-Total Orders;
 
     Total Orders =    
     CALCULATE(COUNT(orders[orderDate]), USERELATIONSHIP('Date Table'[Date], orders[orderDate]) ) 
