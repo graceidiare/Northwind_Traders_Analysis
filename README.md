@@ -71,5 +71,29 @@ DAX Maesures;
     Products Sold =
     CALCULATE(COUNT(order_details[orderID]), ISBLANK(order_details[orderID]) = FALSE(), USERELATIONSHIP('Date Table'[Date], orders[orderDate]) )
 
+    Discounts =
+    [Gross Sales] - [Net Sales]
+
+    Shipped Orders =
+    CALCULATE(COUNT(orders[shippedDate]), USERELATIONSHIP('Date Table'[Date], orders[shippedDate]) ) 
+
+    Not Shipped =
+    CALCULATE(COUNT(orders[orderID]), ISBLANK(orders[shippedDate]) , USERELATIONSHIP(orders[shippedDate], 'Date Table'[Date]))
+
+    Discontinued Products =
+    CALCULATE(COUNT(products[discontinued]), products[discontinued] = 1, USERELATIONSHIP('Date Table'[Date], orders[orderDate]))
+
+    Freight Paid =
+    CALCULATE(SUM(orders[freight]), USERELATIONSHIP(orders[orderDate], 'Date Table'[Date]) )
+
+    On-time =
+    CALCULATE(COUNT(orders[Shipping Delivery]), orders[Shipping Delivery] = "On-time") 
+
+    On-time Delivery Rate =
+    DIVIDE([On-time], [Total Orders]) 
+
+    
+    
+
     
 
