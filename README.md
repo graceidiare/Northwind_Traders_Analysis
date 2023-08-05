@@ -60,8 +60,16 @@ The date table was created in Power Query;
 DAX Maesures;     
 
     Net Sales =     
-    CALCULATE(SUM(order_details[net sales]), USERELATIONSHIP(orders[orderDate], 'Date Table'[Date]) )
+    CALCULATE(SUM(order_details[net sales]), USERELATIONSHIP(orders[orderDate], 'Date Table'[Date]) )   
+
+    Gross Sales =
+    CALCULATE(SUM(order_details[gross sales]), USERELATIONSHIP(orders[orderDate], 'Date Table'[Date]))    
 
     Total Orders =    
-    CALCULATE(COUNT(orders[orderDate]), USERELATIONSHIP('Date Table'[Date], orders[orderDate]) ) 
+    CALCULATE(COUNT(orders[orderDate]), USERELATIONSHIP('Date Table'[Date], orders[orderDate]) )   
+
+    Products Sold =
+    CALCULATE(COUNT(order_details[orderID]), ISBLANK(order_details[orderID]) = FALSE(), USERELATIONSHIP('Date Table'[Date], orders[orderDate]) )
+
+    
 
