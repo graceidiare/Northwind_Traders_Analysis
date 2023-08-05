@@ -8,7 +8,7 @@ _The Northwind Traders database is originally a fictional sample database used b
 _A detailed article on the analysis process and insights is up on my [medium]()_    
 
 
-## Creating the Date Table and DAX Measures             
+## Creating the Date Table and DAX Measures               
 
 The **date table** was created in Power Query;     
 
