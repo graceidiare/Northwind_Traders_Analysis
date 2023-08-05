@@ -10,12 +10,10 @@ These are the measures I created during this project and how I created them;
 
 The date table was created in Power Query;     
 
-= (StartDate as date, EndDate as date)=>
-
-       
-    let    
+    = (StartDate as date, EndDate as date)=>        
     
-     //Capture the date range from the parameters
+    let         
+    //Capture the date range from the parameters
     StartDate = #date(Date.Year(StartDate), Date.Month(StartDate), 
     Date.Day(StartDate)),
     EndDate = #date(Date.Year(EndDate), Date.Month(EndDate), 
