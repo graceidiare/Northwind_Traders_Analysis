@@ -8,8 +8,9 @@ _A detailed article on the analysis process is up on my [medium]()_
 
 These are the measures I created during this project and how I created them;         
 
-The date table was created in Power Query;   
-`= (StartDate as date, EndDate as date)=>
+The date table was created in Power Query;     
+
+= (StartDate as date, EndDate as date)=>
 
 let
     //Capture the date range from the parameters
@@ -55,6 +56,5 @@ let
     each Date.ToText([Date],"dddd"))
 
 in
-    DayOfWeek`
-
+    DayOfWeek
 
