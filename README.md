@@ -10,7 +10,7 @@ These are the measures I created during this project and how I created them;
 
 The date table was created in Power Query;     
 
-    = (StartDate as date, EndDate as date)=>        
+    `= (StartDate as date, EndDate as date)=>        
     
     let         
     //Capture the date range from the parameters
@@ -54,7 +54,7 @@ The date table was created in Power Query;
     //Add Day of Week Column
     DayOfWeek = Table.AddColumn(MonthName , "Day of Week", 
     each Date.ToText([Date],"dddd"))
-
+    
 in
-    DayOfWeek
+    DayOfWeek`
 
