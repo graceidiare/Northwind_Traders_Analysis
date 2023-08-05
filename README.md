@@ -57,6 +57,10 @@ The date table was created in Power Query;
 
 Net Sales;     
 
-    `Net Sales =     
-    CALCULATE(SUM(order_details[net sales]), USERELATIONSHIP(orders[orderDate], 'Date Table'[Date]) )`
+    Net Sales =     
+    CALCULATE(SUM(order_details[net sales]), USERELATIONSHIP(orders[orderDate], 'Date Table'[Date]) )
+
+Total Orders;
+
+    Total Orders = CALCULATE(COUNT(orders[orderDate]), USERELATIONSHIP('Date Table'[Date], orders[orderDate]) ) 
 
